@@ -17,6 +17,7 @@ function displayMessage(event) {
                     title: 'Success',
                     message: `Fulfilled promise in ${delay}ms`,
                     position: "topRight",
+                    color:"#fff",
                     backgroundColor: '#59A10D',
                 });
             }
@@ -25,6 +26,7 @@ function displayMessage(event) {
                     title: 'Error',
                     message: `Rejected promise in ${delay}ms`,
                     position: "topRight",
+                    color: "#fff",
                     backgroundColor: '#EF4040',
                 })
             }

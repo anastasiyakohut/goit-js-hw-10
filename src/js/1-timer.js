@@ -30,6 +30,7 @@ const options = {
                 title: 'Error',
                 message: 'Please choose a date in the future',
                 position: "topRight",
+                color: "#fff",
                 backgroundColor: "#EF4040",
             });
             startBtn.disabled = true;
