@@ -11,28 +11,30 @@ function displayMessage(event) {
 
     let promise = new Promise((resolve, reject) => {
 
-        setTimeout(() => {
-            if (radioButtons === 'fulfilled') {
+        if (radioButtons === 'fulfilled') {
+            setTimeout(() => {
+                resolve(delay);
                 iziToast.success({
                     title: 'Success',
                     message: `Fulfilled promise in ${delay}ms`,
                     position: "topRight",
-                    color:"#fff",
+                    color: "#fff",
                     backgroundColor: '#59A10D',
                 });
-            }
-            else {
+            }, delay);
+        }
+        else {
+            setTimeout(() => {
+                reject(delay);
                 iziToast.error({
                     title: 'Error',
                     message: `Rejected promise in ${delay}ms`,
                     position: "topRight",
                     color: "#fff",
                     backgroundColor: '#EF4040',
-                })
-            }
-
-        }, delay);
-
+                });
+            });
+        }
     });
 }
 
