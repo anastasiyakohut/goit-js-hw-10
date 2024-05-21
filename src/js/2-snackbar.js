@@ -11,16 +11,14 @@ function displayMessage(event) {
 
     let promise = new Promise((resolve, reject) => {
 
-        if (radioButtons === 'fulfilled') {
-            setTimeout(() => {
+        setTimeout(() => {
+            if (radioButtons === 'fulfilled') {
                 resolve(delay);
-            }, delay);
-        }
-        else {
-            setTimeout(() => {
+            }
+            else {
                 reject(delay);
-            }, delay);
-        }
+            }
+        }, delay)
     });
 
     promise
@@ -44,4 +42,4 @@ function displayMessage(event) {
         })
 }
 
-form.addEventListener('click', displayMessage);
+form.addEventListener('submit', displayMessage);
