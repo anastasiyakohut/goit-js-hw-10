@@ -1,7 +1,7 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-const submitBtn = document.querySelector('.button-notification');
+const form = document.querySelector('.form');
 
 function displayMessage(event) {
     event.preventDefault();
@@ -14,28 +14,34 @@ function displayMessage(event) {
         if (radioButtons === 'fulfilled') {
             setTimeout(() => {
                 resolve(delay);
-                iziToast.success({
-                    title: 'Success',
-                    message: `Fulfilled promise in ${delay}ms`,
-                    position: "topRight",
-                    color: "#fff",
-                    backgroundColor: '#59A10D',
-                });
             }, delay);
         }
         else {
             setTimeout(() => {
                 reject(delay);
-                iziToast.error({
-                    title: 'Error',
-                    message: `Rejected promise in ${delay}ms`,
-                    position: "topRight",
-                    color: "#fff",
-                    backgroundColor: '#EF4040',
-                });
-            });
+            }, delay);
         }
     });
+
+    promise
+        .then(delay => {
+            iziToast.success({
+                title: 'Success',
+                message: `Fulfilled promise in ${delay}ms`,
+                position: "topRight",
+                color: "#fff",
+                backgroundColor: '#59A10D',
+            });
+        })
+        .catch(delay => {
+            iziToast.error({
+                title: 'Error',
+                message: `Rejected promise in ${delay}ms`,
+                position: "topRight",
+                color: "#fff",
+                backgroundColor: '#EF4040',
+            });
+        })
 }
 
-submitBtn.addEventListener('click', displayMessage);
+form.addEventListener('click', displayMessage);
